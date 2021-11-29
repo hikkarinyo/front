@@ -1,7 +1,7 @@
 <template>
     <div>
         <div class="form-group">
-            <router-link to="/" class="btn btn-dark">Назад</router-link>
+            <router-link to="/counterparty" class="btn btn-dark">Назад</router-link>
         </div>
         <h3>Регистрация контрагента</h3>
         <b-form @submit.prevent="saveForm()">
@@ -37,8 +37,8 @@
         methods: {
             saveForm() {
                 let app = this;
-                let newСounterparty = app.counterparty;
-                axios.post('http://localhost:8080/api/counterparty/', newСounterparty)
+                let newCounterparty = app.counterparty;
+                axios.post('http://localhost:8080/api/counterparty/', newCounterparty)
                     .then(function () {
                         app.$router.push({path: '/counterparty'});
                     })

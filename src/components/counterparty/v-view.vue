@@ -72,7 +72,7 @@
                     let app = this;
                     axios.delete('http://localhost:8080/api/counterparty/' + id)
                         .then(function () {
-                            app.$router.push('/');
+                            app.$router.push('/counterparty');
                         })
                         .catch(function () {
                             alert("Не удалось удалить товар.");

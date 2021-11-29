@@ -61,7 +61,7 @@
                     let app = this;
                     axios.delete('http://localhost:8080/api/commodity/' + id)
                         .then(function () {
-                            app.$router.push('/');
+                            app.$router.push('/commodity');
                         })
                         .catch(function () {
                             alert("Не удалось удалить товар.");
