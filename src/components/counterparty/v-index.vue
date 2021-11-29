@@ -22,6 +22,7 @@
                         </b-input-group-append>
                     </b-input-group>
                 </b-form-group>
+
                 <b-table id="my-table"
                          striped hover
                          :items="counterparty"

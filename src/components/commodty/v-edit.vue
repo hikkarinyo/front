@@ -52,7 +52,8 @@
                 let newCommodity = app.commodity;
                 axios.put('http://localhost:8080/api/commodity/' + app.vendorCode, newCommodity)
                     .then(function () {
-                        app.$router.push('/');
+                        app.$router.push('/commodity');
+
                     })
                     .catch(function () {
                         alert("Не удалось изменить товар");

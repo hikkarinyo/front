@@ -1,37 +1,9 @@
 <template>
     <div>
-<!--        <div class="form-group">
-            <router-link to="/" class="btn btn-dark">Назад</router-link>
-        </div>
-
-        <div class="panel panel-default">
-            <h3 class="panel-heading">Регистрация товара</h3>
-            <div class="panel-body">
-                <form @submit.prevent="saveForm()">
-                    <div class="row">
-                        <div class="col-xs-12 form-group">
-                            <label class="control-label">Артикул</label>
-                            <input type="text" v-model="commodity.vendorCode" class="form-control">
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-xs-12 form-group">
-                            <label class="control-label">Наименование товара</label>
-                            <input type="text" v-model="commodity.name" class="form-control">
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-xs-12 form-group">
-                            <button class="btn btn-dark">Добавить</button>
-                        </div>
-                    </div>
-                </form>
-            </div>
-        </div>-->
         <template>
             <div>
                 <div class="form-group">
-                    <router-link to="/" class="btn btn-dark">Назад</router-link>
+                    <router-link to="/commodity" class="btn btn-dark">Назад</router-link>
                 </div>
                 <h3>Регистрация товара</h3>
                 <b-form @submit.prevent="saveForm()">
@@ -83,7 +55,7 @@
                 let newCommodity = app.commodity;
                 axios.post('http://localhost:8080/api/commodity/', newCommodity)
                     .then(function () {
-                        app.$router.push({path: '/'});
+                        app.$router.push({path: '/commodity'});
                     })
                     .catch(function () {
                         alert("Не удалось добавить товар");

@@ -8,13 +8,19 @@ import vIndexCounterparty from '../components/counterparty/v-index.vue'
 import vCreatCounterparty from '../components/counterparty/v-create.vue'
 import vViewCounterparty from '../components/counterparty/v-view.vue'
 import vEditCounterparty from '../components/counterparty/v-edit.vue'
-
+import vMenu from '../components/v-menu.vue'
 Vue.use(Router);
 
 
 export default new Router({
     mode: 'history',
     routes: [
+        {
+            path: '/',
+            name: 'menu',
+            component: vMenu,
+            props: true,
+        },
         {
             path: '/commodity',
             name: 'commodity',

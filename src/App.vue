@@ -35,12 +35,12 @@
         font-family: 'Fira Sans', sans-serif;
     }
 
-    h1, h2, h3, h4, h5, h6, label, span {
+    h2, h3, h4, h5, h6, label, span {
         font-weight: 500;
         font-family: 'Fira Sans', sans-serif;
     }
 
-    body, html, #app, #root, .auth-wrapper {
+    body, html, #app, .auth-wrapper {
         width: 100%;
         height: 100%;
     }
@@ -66,7 +66,7 @@
         transition: all .3s;
     }
 
-    .auth-wrapper, .form-control:focus {
+    .auth-wrapper{
         border-color: #167bff;
         box-shadow: none;
     }
