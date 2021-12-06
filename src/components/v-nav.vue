@@ -14,7 +14,7 @@
                         <router-link to="/counterparty" class="nav-link">Контерагенты</router-link>
                     </li>
                     <li  class="nav-item">
-                        <router-link to="#" class="nav-link">Накладная</router-link>
+                        <router-link to="/waybill" class="nav-link">Накладная</router-link>
                     </li>
                 </ul>
             </div>

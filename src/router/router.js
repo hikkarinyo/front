@@ -5,10 +5,12 @@ import vEditCommodity from '../components/commodty/v-edit.vue'
 import vIndexCommodity from '../components/commodty/v-index.vue'
 import vViewCommodity from '../components/commodty/v-view.vue'
 import vIndexCounterparty from '../components/counterparty/v-index.vue'
-import vCreatCounterparty from '../components/counterparty/v-create.vue'
+import vCreateCounterparty from '../components/counterparty/v-create.vue'
 import vViewCounterparty from '../components/counterparty/v-view.vue'
 import vEditCounterparty from '../components/counterparty/v-edit.vue'
+import vIndexWaybill from '../components/waybill/v-index.vue'
 import vMenu from '../components/v-menu.vue'
+import vCreateWaybill from '../components/waybill/v-create.vue'
 Vue.use(Router);
 
 
@@ -53,7 +55,7 @@ export default new Router({
         {
             path: '/create_counterparty',
             name: 'create_counterparty',
-            component: vCreatCounterparty,
+            component: vCreateCounterparty,
         },
         {
             path: '/edit_counterparty/:id',
@@ -66,6 +68,17 @@ export default new Router({
             name: 'view_counterparty',
             component: vViewCounterparty,
             props: true
+        },
+        {
+            path: '/waybill',
+            name: 'waybill',
+            component: vIndexWaybill,
+            props: true,
+        },
+        {
+            path: '/create_waybill',
+            name: 'create_waybill',
+            component: vCreateWaybill,
         },
     ]
 })

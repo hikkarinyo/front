@@ -23,11 +23,17 @@
                         </b-input-group>
                     </b-form-group>
                     <b-table id="my-table"
-                             striped hover
                              :items="commodities"
                              :fields="fields"
                              :per-page="perPage"
                              :current-page="currentPage"
+                             primary-key="vendorCode"
+                             :sort-by.sync="sortBy"
+                             :sort-desc.sync="sortDesc"
+                             :filter="filter"
+                             @filtered="onFiltered"
+
+
                     >
                         <template #cell(action)="data">
                             <router-link class="btn btn-outline-dark"
@@ -69,19 +75,23 @@
                 fields: [
                     {
                         key: 'vendorCode',
-                        label: 'Артикул'
+                        label: 'Артикул',
+                        sortable: true
                     },
                     {
                         key: 'name',
-                        label: 'Наименование товара'
+                        label: 'Наименование товара',
+                        sortable: true
                     },
                     {
                         key: 'action',
-                        label: 'Действия'
+                        label: 'Действия',
                     }
                 ],
                 perPage: 5,
                 currentPage: 1,
+                sortBy: 'vendorCode',
+                sortDesc: false,
             }
         },
         mounted() {
@@ -108,6 +118,11 @@
                         });
                 }
             },
+            onFiltered(filteredItems) {
+                // Trigger pagination to update the number of buttons/pages due to filtering
+                this.rows = filteredItems.length
+                this.currentPage = 1
+            }
         },
         computed: {
             rows() {
