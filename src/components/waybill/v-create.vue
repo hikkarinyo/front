@@ -17,25 +17,36 @@
                     </b-select>
                 </b-form-group>
                 <b-form-group label="Дата" label-for="createdAt">
-                    <input type="datetime-local" v-model="waybill.createdAt" id="createdAt">
+<!--                    <input type="datetime-local" v-model="waybill.createdAt" id="createdAt">-->
+                    <VueCtkDateTimePicker v-model="waybill.createdAt" />
                 </b-form-group>
             </b-form-group>
-            <div v-for="(commodity, name) in waybill.commodities" :key="name">
-                <b-form-group label="Груз" label-for="venodorCode">
-                    <b-select id="venodorCode" aria-label="Выберите груз" v-model="commodity.vendorCode">
-                        <option v-for="commodity in commodities" :key="commodity.vendorCode"
-                                :value="commodity.vendorCode" id="vendorCOde">{{commodity.name}}
-                        </option>
-                    </b-select>
+            <b-row>
+                <b-form-group v-for="(commodity, name) in waybill.commodities" :key="name">
+                    <b-col>
+                        <b-form-group label="Груз" label-for="venodorCode">
+                            <b-select id="venodorCode" aria-label="Выберите груз" v-model="commodity.vendorCode">
+                                <option v-for="commodity in commodities" :key="commodity.vendorCode"
+                                        :value="commodity.vendorCode" id="vendorCOde">{{commodity.name}}
+                                </option>
+                            </b-select>
+                        </b-form-group>
+                    </b-col>
+                    <b-col>
+                        <b-form-group label="Количество" label-for="amount">
+                            <b-form-input v-model="commodity.amount" id="amount"></b-form-input>
+                        </b-form-group>
+                    </b-col>
+                    <b-col>
+                        <b-form-group>
+                            <b-button @click="deleteCommodities(index)" variant="dark">-</b-button>
+                        </b-form-group>
+                    </b-col>
                 </b-form-group>
-                <b-form-group label="Количество" label-for="amount">
-                    <b-form-input v-model="commodity.amount" id="amount"></b-form-input>
-                </b-form-group>
-                <b-form-group>
-                    <b-button @click="addItem()" style="margin: 5px" variant="dark">+</b-button>
-                    <b-button style="margin: 5px" variant="dark">-</b-button>
-                </b-form-group>
-            </div>
+            </b-row>
+            <b-form-group>
+                <b-button @click="addCommodities()" variant="dark">+</b-button>
+            </b-form-group>
             <b-button type="submit" variant="dark">Добавить</b-button>
         </b-form>
     </div>
@@ -44,9 +55,12 @@
 
 <script>
     import axios from 'axios'
+    import VueCtkDateTimePicker from 'vue-ctk-date-time-picker';
+    import 'vue-ctk-date-time-picker/dist/vue-ctk-date-time-picker.css';
 
     export default {
         name: "v-create",
+        components: { VueCtkDateTimePicker },
         data: function () {
             return {
                 waybill: {
@@ -77,6 +91,12 @@
                         alert("Не удалось добавить накладную!");
                     });
             },
+            addCommodities() {
+                this.waybill.commodities.push({vendorCode: '', amount: ''})
+            },
+            deleteCommodities: function (index) {
+                this.waybill.commodities.splice(index, 1);
+            }
 
         },
         mounted() {
@@ -98,8 +118,6 @@
                     alert("Не удалось загрузить товар");
                 });
         },
-        сomputed: {}
-
     }
 </script>
 <style>

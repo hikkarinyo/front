@@ -4,7 +4,7 @@
             <router-link to="/create_waybill" class="btn btn-dark">Создать</router-link>
         </div>
 
-        <table  class="table table-bordered table-striped">
+        <table class="table table-bordered table-striped">
             <thead>
             <tr>
                 <th>#</th>
@@ -55,10 +55,8 @@
                     alert("Не удалось загрузить!");
                 });
         },
-        methods: {},
     }
 </script>
 
 <style scoped>
-
 </style>
