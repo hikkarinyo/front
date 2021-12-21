@@ -11,6 +11,13 @@ import vEditCounterparty from '../components/counterparty/v-edit.vue'
 import vIndexWaybill from '../components/waybill/v-index.vue'
 import vMenu from '../components/v-menu.vue'
 import vCreateWaybill from '../components/waybill/v-create.vue'
+import vIndexZone from '../components/zone/v-index.vue'
+import  vViewZone from '../components/zone/v-view.vue'
+import vEditZone from  '../components/zone/v-edit.vue'
+import vCreateZone from '../components/zone/v-create.vue'
+
+
+
 Vue.use(Router);
 
 
@@ -79,6 +86,29 @@ export default new Router({
             path: '/create_waybill',
             name: 'create_waybill',
             component: vCreateWaybill,
+        },
+        {
+            path: '/zone',
+            name: 'zone',
+            component: vIndexZone,
+            props: true,
+        },
+        {
+            path: '/zone/:id',
+            name: 'view_zone',
+            component: vViewZone,
+            props: true
+        },
+        {
+            path: '/create_zone',
+            name: 'create_zone',
+            component: vCreateZone,
+        },
+        {
+            path: '/edit_zone/:id',
+            name: 'edit_zone',
+            component: vEditZone,
+            props: true
         },
     ]
 })

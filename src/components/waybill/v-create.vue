@@ -17,8 +17,7 @@
                     </b-select>
                 </b-form-group>
                 <b-form-group label="Дата" label-for="createdAt">
-<!--                    <input type="datetime-local" v-model="waybill.createdAt" id="createdAt">-->
-                    <VueCtkDateTimePicker v-model="waybill.createdAt" />
+                    <input type="datetime-local" v-model="waybill.createdAt" id="createdAt">
                 </b-form-group>
             </b-form-group>
             <b-row>
@@ -55,12 +54,10 @@
 
 <script>
     import axios from 'axios'
-    import VueCtkDateTimePicker from 'vue-ctk-date-time-picker';
-    import 'vue-ctk-date-time-picker/dist/vue-ctk-date-time-picker.css';
+
 
     export default {
         name: "v-create",
-        components: { VueCtkDateTimePicker },
         data: function () {
             return {
                 waybill: {
@@ -78,7 +75,6 @@
 
             }
         },
-
         methods: {
             saveForm() {
                 let app = this;

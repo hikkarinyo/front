@@ -37,20 +37,6 @@
         data: function () {
             return {
                 counterparty: [],
-                fields: [
-                    {
-                        key: 'index',
-                        label: '#'
-                    },
-                    {
-                        key: 'name',
-                        label: 'Контрагент'
-                    },
-                    {
-                        key: 'action',
-                        label: 'Действия'
-                    }
-                ],
             }
         },
         mounted() {

@@ -29,9 +29,7 @@
         name: "v-create",
         data: function () {
             return {
-                counterparty: {
-                    name: '',
-                }
+                counterparty: { name: '',}
             }
         },
         methods: {
@@ -45,13 +43,14 @@
                     .catch(function () {
                         alert("Не удалось добавить товар");
                     });
-            }
+            },
         },
         computed: {
             validation() {
                 return this.counterparty.name.length >= 2
             },
-        }
+        },
+
 
     }
 </script>

@@ -6,7 +6,7 @@
             <router-link :to="{name: 'create_counterparty'}" class="btn btn-dark">Добавить контрагента</router-link>
         </div>
         <div class="panel panel-default">
-            <h3>Контерагенты</h3>
+            <h3>Контрагенты</h3>
             <div class="panel-body">
                 <b-form-group>
                     <b-input-group size="sm">
@@ -29,6 +29,7 @@
                          :fields="fields"
                          :per-page="perPage"
                          :current-page="currentPage"
+                         :filter="filter"
                 >
                     <template #cell(index)="data">
                         {{ data.index + 1 }}
@@ -92,12 +93,14 @@
             let app = this;
             axios.get('http://localhost:8080/api/counterparty/all')
                 .then(function (resp) {
+                    console.log(resp);
                     app.counterparty = resp.data;
                 })
                 .catch(function (resp) {
                     console.log(resp);
                     alert("Не удалось загрузить товар");
                 });
+
         },
         methods: {
             deleteEntry(id, index) {
@@ -112,12 +115,16 @@
                         });
                 }
             },
-        },
+            onFiltered(filteredItems) {
+                this.rows = filteredItems.length
+                this.currentPage = 1
+            }
+
+            },
         computed: {
             rows() {
                 return this.counterparty.length
             },
-
         }
     }
 </script>

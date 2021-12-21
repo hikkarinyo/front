@@ -26,7 +26,7 @@
                     </div>
 
                 </td>
-                <td>{{ waybill.createdAt }}</td>
+                <td>{{ waybill.createdAt.slice(0,10)}}</td>
             </tr>
             </tbody>
         </table>
@@ -40,7 +40,7 @@
         name: "v-view",
         data: function () {
             return {
-                waybills: {},
+                waybills: [],
             }
         },
         mounted() {
